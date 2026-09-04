@@ -31,6 +31,7 @@ bool Document::load(const std::string& path) {
 
     contents_ = buffer.str();
     sourcePath_ = path;
+    title_ = path;
     return true;
 }
 

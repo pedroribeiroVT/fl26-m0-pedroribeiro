@@ -116,7 +116,7 @@ void document_load_reads_whole_file_test() {
     assert(d.contents() == "line one\nline two\n");
     assert(d.characterCount() == 18);
     assert(d.sourcePath() == path);
-    assert(d.title() == "Sample");
+    assert(d.title() == path);
     assert(d != Document("Sample", "line one\nline two\n"));
 
     std::remove(path.c_str());
@@ -130,6 +130,7 @@ void document_load_empty_file_test() {
     assert(d.load(path));
     assert(d.contents().empty());
     assert(d.sourcePath() == path);
+    assert(d.title() == path);
 
     std::remove(path.c_str());
 }
@@ -140,6 +141,7 @@ void document_failed_load_preserves_state_test() {
 
     assert(!d.load("no_such_file_m0.txt"));
     assert(d == before);
+    assert(d.title() == "Keep me");
     assert(d.contents() == "original contents");
     assert(d.sourcePath().empty());
 }
