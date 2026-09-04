@@ -2,3 +2,6 @@ build/
 gradescope_build/
 *.txt~
 reference_load.txt
+
+# macOS
+.DS_Store
